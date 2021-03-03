@@ -1,0 +1,15 @@
+.status {
+  display: block;
+  width: 10px;
+  height: 10px;
+  float: left;
+  border-radius: 50%;
+  margin: 5px 10px 0 0;
+}
+.status.checked-in {
+  background-color: turquoise;
+}
+
+.status.checked-out {
+  background-color: tomato;
+}
