@@ -47,6 +47,24 @@
       "checkedIn": false,
       "checkInDate": null,
       "id": 12
+    },
+    {
+      "fullName": "mohamed",
+      "checkedIn": false,
+      "checkInDate": null,
+      "id": 13
+    },
+    {
+      "fullName": "atlas",
+      "checkedIn": true,
+      "checkInDate": null,
+      "id": 14
+    },
+    {
+      "fullName": "ghk",
+      "checkedIn": true,
+      "checkInDate": 1616457600000,
+      "id": 15
     }
   ]
 }
