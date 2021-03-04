@@ -13,7 +13,7 @@ import { Location } from '@angular/common'
       <br>
       <input type='checkbox' name="checkedIn" ngModel> checked in
       <br>
-      Date: <input type='date' name='checkInDate' ngModel [disabled]="!f.value.checkedIn">
+      Date: <input type='date' name='checkInDate' ngModel [disabled]="!f.value.checkedIn" [required]='f.value.checkedIn'>
       
       <br>
       <button type='submit'>Submit</button>
