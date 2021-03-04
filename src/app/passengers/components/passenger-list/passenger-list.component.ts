@@ -3,7 +3,8 @@ import { Passenger } from "src/assets/passengers";
 
 @Component({
   selector: "passenger-list",
-  template: `<span
+  template: `
+  <span
       class="status"
       [ngClass]="{
         'checked-in': passenger.checkedIn,
@@ -27,9 +28,11 @@ import { Passenger } from "src/assets/passengers";
     </div>
     <div class="children">Children : {{ passenger.children?.length || 0 }}</div>
     <div class="action">
-      <button (click)="toggleEdit()">{{ editing ? "done" : "edit" }}</button>
+      <!--<button (click)="toggleEdit()">{{ editing ? "done" : "edit" }}</button>-->
+      <a href='/edit/{{passenger.id}}'><button>Edit</button></a>
       <button (click)="handleRemove(passenger.id)">remove</button>
-    </div>`,
+    </div>
+  `,
   styleUrls: ["./passenger-list.component.css"],
 })
 export class PassengerListComponent {
@@ -38,6 +41,10 @@ export class PassengerListComponent {
   @Output() remove: EventEmitter<number> = new EventEmitter();
   editing: boolean = false;
   passengerToEmit: Passenger;
+
+  ngOnInit() {
+    console.log(this.passenger);
+  }
 
   toggleEdit() {
     if (this.editing) {
@@ -53,4 +60,5 @@ export class PassengerListComponent {
   handleRemove(id: number) {
     this.remove.emit(id);
   }
+
 }

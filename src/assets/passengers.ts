@@ -2,7 +2,7 @@ interface child {
   name: string;
   age: number;
 }
-export interface Passenger {
+export class Passenger {
   id: number;
   fullName: string;
   checkedIn: boolean;
@@ -10,7 +10,7 @@ export interface Passenger {
   children?: child[];
 }
 
-export const passengers: Passenger[] = [
+/*export const passengers: Passenger[] = [
   {
     id: 1,
     fullName: "Stephen",
@@ -64,3 +64,4 @@ export const passengers: Passenger[] = [
     checkInDate: null,
   },
 ];
+*/
