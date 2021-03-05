@@ -12,7 +12,6 @@ import { PassengerService } from "../passenger.service";
     <passenger-list
       *ngFor="let passenger of passengers"
       [passenger]="passenger"
-      (edit)="editPassenger($event)"
       (remove)="removePassenger($event)"
     ></passenger-list>
     <hr>
@@ -36,8 +35,9 @@ export class PassengerDashboardComponent implements OnInit, OnDestroy {
     this.passengersSubscription$ = this.passengerService.getPassengers().subscribe(items => this.passengers = items);
   }
 
+  /*
   editPassenger(passenger: Passenger) {
-    
+
     this.passengersSubscription$ = this.passengerService.updatePassenger(passenger).subscribe(() => {
       this.passengers = this.passengers.map((p) => {
         if (p.id === passenger.id) {
@@ -47,9 +47,9 @@ export class PassengerDashboardComponent implements OnInit, OnDestroy {
       });
     });
   }
-
+*/
   removePassenger(id: number) {
-    
+
     this.passengersSubscription$ = this.passengerService.deletePassenger(id).subscribe(() => {
       this.passengers = this.passengers.filter(
         (passenger) => passenger.id !== id
