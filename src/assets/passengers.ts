@@ -1,4 +1,4 @@
-interface child {
+export class Child {
   name: string;
   age: number;
 }
@@ -7,7 +7,7 @@ export class Passenger {
   fullName: string;
   checkedIn: boolean;
   checkInDate: number;
-  children?: child[];
+  children?: Child[];
 }
 
 /*export const passengers: Passenger[] = [

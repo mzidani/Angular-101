@@ -9,6 +9,7 @@ import { FormsModule } from "@angular/forms";
 import { PassengerFormComponent } from "./components/passenger-form/passenger-form.component";
 import { RouterModule } from "@angular/router";
 import { PassengerEditComponent } from "./components/passenger-form/passenger-edit.component";
+import {PassengerChildrenComponent} from './components/passenger-form/passenger-children.component';
 
 
 
@@ -18,10 +19,11 @@ import { PassengerEditComponent } from "./components/passenger-form/passenger-ed
     PassengerCountComponent,
     PassengerListComponent,
     PassengerFormComponent,
-    PassengerEditComponent
+    PassengerEditComponent,
+    PassengerChildrenComponent
   ],
-  imports: [CommonModule, 
-            HttpClientModule, 
+  imports: [CommonModule,
+            HttpClientModule,
             FormsModule
   ],
   providers: [PassengerService],

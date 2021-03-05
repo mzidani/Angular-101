@@ -2,69 +2,53 @@
   "passengers": [
     {
       "id": 3,
-      "fullName": "Rosalinda",
+      "fullName": "Rosa",
       "checkedIn": true,
-      "checkInDate": 1617148800000
-    },
-    {
-      "id": 4,
-      "fullName": "Louise",
-      "checkedIn": true,
-      "checkInDate": 1488412800000,
+      "checkInDate": 1615248000000,
       "children": [
         {
-          "name": "hamza",
+          "name": "Eren",
+          "age": 20
+        },
+        {
+          "name": "Mikasa",
           "age": 15
         }
       ]
     },
     {
+      "id": 4,
+      "fullName": "Louise",
+      "checkedIn": true,
+      "checkInDate": 1624492800000,
+      "children": [
+        {
+          "name": "Armin",
+          "age": 20
+        },
+        {
+          "name": "Sacha",
+          "age": 16
+        }
+      ]
+    },
+    {
       "id": 5,
-      "fullName": "Tina fay",
-      "checkedIn": false,
-      "checkInDate": null
-    },
-    {
-      "fullName": "iliass",
-      "checkedIn": false,
-      "checkInDate": null,
-      "id": 6
-    },
-    {
-      "fullName": "yassine",
-      "checkedIn": true,
-      "checkInDate": null,
-      "id": 10
-    },
-    {
-      "fullName": "mohamed",
-      "checkedIn": true,
-      "checkInDate": 1616544000000,
-      "id": 11
-    },
-    {
-      "fullName": "yassine",
-      "checkedIn": false,
-      "checkInDate": null,
-      "id": 12
-    },
-    {
-      "fullName": "mohamed",
-      "checkedIn": false,
-      "checkInDate": null,
-      "id": 13
-    },
-    {
-      "fullName": "atlas",
-      "checkedIn": true,
-      "checkInDate": null,
-      "id": 14
-    },
-    {
-      "fullName": "ghk",
+      "fullName": "Tina fayfer",
       "checkedIn": true,
       "checkInDate": 1616457600000,
-      "id": 15
+      "children": [
+        {
+          "name": "Erwin",
+          "age": 20
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "fullName": "youssef",
+      "checkedIn": false,
+      "checkInDate": null
     }
   ]
 }
