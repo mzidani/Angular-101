@@ -11,24 +11,25 @@ import { PassengerService } from '../../passenger.service';
 
     <form #f='ngForm' (ngSubmit)='onSubmit(f)'>
       <table>
-        <input type='hidden' name="id" [(ngModel)]='passenger.id' [value]='passenger.id'>
+        <input type='text' name="id" [(ngModel)]='passenger.id' hidden>
         <tr>
           <td>
             Full Name:
           </td>
           <td>
-            <input type='text' name='fullName' [(ngModel)]='passenger.fullName' required [value]='passenger.fullName' >
+            <input type='text' name='fullName' [(ngModel)]='passenger.fullName' required>
           </td>
         </tr>
         <tr>
-          <input type='checkbox' name="checkedIn" [(ngModel)]='passenger.checkedIn' [checked]='passenger.checkedIn'> checked in
+          <input type='checkbox' name="checkedIn" [(ngModel)]='passenger.checkedIn' (ngModelChange)="setDate(passenger.checkedIn)"> checked in
         </tr>
-        <tr>
+        <tr  *ngIf="f.value.checkedIn">
           <td>
             Date:
           </td>
           <td>
-            <input type='date' name='checkInDate' ngModel value='{{ passenger.checkInDate ? (passenger.checkInDate | date: "yyyy-MM-dd") : "" }}' [disabled]="!f.value.checkedIn">
+            <input type='date' value='{{ passenger.checkInDate ? (passenger.checkInDate | date: "yyyy-MM-dd") : "" }}'>
+            <input type="text" name='checkInDate' [(ngModel)]="passenger.checkInDate" hidden>
           </td>
         </tr>
       </table>
@@ -43,6 +44,7 @@ import { PassengerService } from '../../passenger.service';
               </tr>
             </table>
 
+            <input type="text" name="children" [(ngModel)]="passenger.children" hidden>
             <passenger-children *ngFor="let child of passenger.children" [child]="child" (edit)="editChild($event)" (editerName)="getName($event)" (remove)="removeChild($event)"></passenger-children>
 
           </div>
@@ -51,13 +53,13 @@ import { PassengerService } from '../../passenger.service';
         <table>
           <tr>
             <td class="cwid">
-              <input type="text" [(ngModel)]="cname" name="cname" placeholder="name">
+              <input type="text" (input)="handleChildName($event)" placeholder="name" [value]="cname">
             </td>
             <td class="cwid">
-              <input type="number" [(ngModel)]="cage" name="cage" placeholder="age">
+              <input type="number" (input)="handleChildAge($event)" placeholder="age" [value]="cage">
             </td>
             <td class="btns">
-              <button (click)="addChild()">Add</button>
+              <button type="button" (click)="addChild()">Add</button>
             </td>
           </tr>
         </table>
@@ -97,22 +99,8 @@ export class PassengerEditComponent implements OnInit{
 
 
     onSubmit(f){
-        let pass: Passenger = new Passenger();
-
         if(f.valid){
-            console.log(f.value.fullName);
-            pass.id = f.value.id;
-            pass.fullName = f.value.fullName;
-            pass.checkedIn = f.value.checkedIn ? f.value.checkedIn : false;
-            pass.checkInDate=new Date(f.value.checkInDate).getTime();
-            console.log(pass.checkInDate);
-            if(!pass.checkInDate && pass.checkedIn) {
-              pass.checkInDate = this.passenger.checkInDate;
-            }
-            console.log(this.passenger.checkInDate);
-            pass.children = this.passenger.children;
-            console.log(pass.children);
-            this.passengerService.updatePassenger(pass).subscribe();
+            this.passengerService.updatePassenger(f.value).subscribe();
             this.message = 'Passenger edited';
         }
 
@@ -152,5 +140,20 @@ export class PassengerEditComponent implements OnInit{
       }
       this.cname = '';
       this.cage = '';
+  }
+
+  setDate(checkedIn: boolean) {
+    if(checkedIn) {
+      this.passenger.checkInDate = new Date().getTime();
+      console.log(this.passenger.checkInDate);
+    }
+  }
+
+  handleChildName(name: any) {
+    this.cname = name.target.value;
+  }
+
+  handleChildAge(age: any) {
+    this.cage = age.target.value;
   }
 }

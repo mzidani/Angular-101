@@ -16,8 +16,8 @@ import {Child, Passenger} from '../../../../assets/passengers';
             <span *ngIf="!editing">{{child.age}}</span>
           </td>
           <td class="btns">
-            <button (click)="toggleEdit()">{{ editing ? 'Done' : 'Edit' }}</button>
-            <button (click)="handleRemove(child.name)">Remove</button>
+            <button type="button" (click)="toggleEdit()">{{ editing ? 'Done' : 'Edit' }}</button>
+            <button type="button" (click)="handleRemove(child.name)">Remove</button>
           </td>
         </tr>
       </table>

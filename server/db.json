@@ -2,9 +2,9 @@
   "passengers": [
     {
       "id": 3,
-      "fullName": "Rosa",
+      "fullName": "Rosalin",
       "checkedIn": true,
-      "checkInDate": 1615248000000,
+      "checkInDate": 1617062400000,
       "children": [
         {
           "name": "Eren",
@@ -36,11 +36,15 @@
       "id": 5,
       "fullName": "Tina fayfer",
       "checkedIn": true,
-      "checkInDate": 1616457600000,
+      "checkInDate": 1616544000000,
       "children": [
         {
           "name": "Erwin",
           "age": 20
+        },
+        {
+          "name": "Hanabi",
+          "age": 15
         }
       ]
     },
@@ -49,6 +53,22 @@
       "fullName": "youssef",
       "checkedIn": false,
       "checkInDate": null
+    },
+    {
+      "id": 9,
+      "fullName": "Adam",
+      "checkedIn": true,
+      "children": [
+        {
+          "name": "levi",
+          "age": 24
+        },
+        {
+          "name": "Historia",
+          "age": 18
+        }
+      ],
+      "checkInDate": 1615083788933
     }
   ]
 }

@@ -14,7 +14,7 @@ import { Location } from '@angular/common'
       <input type='checkbox' name="checkedIn" ngModel> checked in
       <br>
       Date: <input type='date' name='checkInDate' ngModel [disabled]="!f.value.checkedIn" [required]='f.value.checkedIn'>
-      
+
       <br>
       <button type='submit'>Submit</button>
     </form>
@@ -24,7 +24,7 @@ import { Location } from '@angular/common'
     styleUrls: []
 })
 export class PassengerFormComponent implements OnDestroy{
-    
+
     public passengersSubscription$ : Subscription;
 
     constructor(private passengerService: PassengerService, private location: Location){
@@ -34,29 +34,30 @@ export class PassengerFormComponent implements OnDestroy{
     ngOnDestroy(): void {
         this.passengersSubscription$.unsubscribe;
     }
-    
+
     @Output() passenger: EventEmitter<Passenger> = new EventEmitter();
 
     goBack(): void {
         this.location.back();
       }
-    
+
 
     onSubmit(f){
         let pass: Passenger = new Passenger();
 
         if(f.valid){
             console.log(f.value.fullName);
+            console.log(f.value.checkedIn);
             pass.fullName = f.value.fullName;
-            pass.checkedIn = f.value.checkedIn ? f.value.checkedIn : false;
+            pass.checkedIn = f.value.checkedIn;
             console.log(f.value.checkedIn);
             pass.checkInDate=new Date(f.value.checkInDate).getTime();
             //this.passenger.emit(pass);
             this.passengersSubscription$ = this.passengerService.addPassenger(pass).subscribe(() => {
                 this.goBack();
             });
-            
+
         }
-        
+
     }
 }
